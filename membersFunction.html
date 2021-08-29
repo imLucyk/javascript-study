@@ -1,0 +1,23 @@
+<script>
+const members = [];
+
+const membersCreate = function(member) {
+  members.push(member);
+  return members;
+};
+
+const membersRead = function() {
+  return members;
+}
+
+const membersDelete = function(index) {
+  members.splice(index, 1)
+  return members;
+}
+
+const membersUpdate = function(index, member){
+  members[index] = member;
+  return members;
+
+}
+</script>
