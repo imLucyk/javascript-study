@@ -1,9 +1,45 @@
 <script>
-  
-const func1 = function(parameter1, parameter2) {
-  const sum1 = parameter1 + parameter2;
-  return sum1;
+
+// const func1 = function(parameter1, parameter2) {
+//   const sum1 = parameter1 + parameter2;
+//   return sum1;
+// };
+// const returned1 = func1('a', 'b');
+// // const returned1 = "ab";
+
+// const f1 = function() {
+//   console.log('함수 호출')
+// }
+// f1()
+
+// const scriptConst2 = 'a';
+// const func2 = function(parameter1) {
+//     const compare1 = scriptConst2 === parameter1;
+//     parameter1 = 'b';
+//     const compare2 = scriptConst2 === parameter1;
+// };
+// func2(scriptConst2);
+
+// const scriptConst3 = [];
+// const func3 = function(parameter1) {
+//     const compare1 = scriptConst3 === parameter1;
+//     parameter1.push('a');
+//     scriptConst3.push('b');
+//     const compare2 = scriptConst3 === parameter1;
+// };
+// func3(scriptConst3);
+
+const scriptConst4 = function() {};
+const func4 = function(parameter1) {
+  // 서버와 통신
+  parameter1()
+  const compare1 = scriptConst4 === parameter1;
+  parameter1 = function() {};
+  const compare2 = scriptConst4 === parameter1;
 };
-const returned1 = func1('argument1', 'argument2');
+func4(function() {
+  console.log('익명함수 호출');
+});
+
 
 </script>
