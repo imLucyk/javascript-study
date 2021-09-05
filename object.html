@@ -1,0 +1,41 @@
+<script>
+
+const object1 = {};
+const object2 = {
+  key1: '값1',
+  key2: [1, 2, 3],
+  key3: function() {
+    // console.log(this.key1);
+    return this;
+  },
+  key4: {
+    k1: 'v1',
+    k2: 'v2'
+  }
+};
+
+// // 오브젝트 Create
+// object1.key1 = 1;
+// object1.key2 = '2';
+// object1['key3'] = '삼';
+
+// // 오브젝트 Read (. 연산자, 대괄호 연산자)
+// const o1 = object1.key1;
+// const o2 = object1['key2'];
+// const o3 = object1.key3;
+
+// // 오브젝트 Update
+// object1['key1'] = [];
+// object1.key2 = function() {};
+// object1.key3 = {
+//   k1: 'v1',
+//   k2: 'v2'
+// };
+
+// // 오브젝트 Delete
+// delete object1.key1;
+// delete object1.key2;
+// delete object1['key3'];
+
+
+</script>
