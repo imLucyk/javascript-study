@@ -4,7 +4,7 @@ const object1 = {};
 const object2 = {
   key1: '값1',
   key2: [1, 2, 3],
-  key3: function(a) {
+  keys: function(a) {
     console.log(this.key2);
     return a * a;
   },
@@ -49,5 +49,15 @@ console.log(array2.length);
 
 const array3 = Object.values(object2);
 console.log(array3.length);
+
+try {
+  t1;
+  console.log('진행 가능1?');
+} catch(error) {
+  console.warn(error);
+  console.error(error);
+}
+console.log('진행 가능2?');
+
 
 </script>
