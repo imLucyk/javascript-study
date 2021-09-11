@@ -1,1 +1,50 @@
-window
+<script>
+// let s1 = 2;
+// var v1 = 'a';
+// v2 = 'b';
+// const condition1 = v1 === window.v1;
+// const condition2 = v2 === window.v2;
+// {
+//   let b1 = 1;
+//   let v2 = 'block v2';
+
+// }
+
+// console.log(v2);
+// f1();
+
+// function f1() {}
+// const condition3 = f1 === window.f1;
+
+// if (window.confirm('진행 하시겠습니까?')) {
+//   window.console.log('진행');
+// } else {
+//   window.alert('멈춤');
+// }
+
+// const string1 = '[1, 2, 3]';
+// const array1 = JSON.parse(string1);
+// const string2 = JSON.stringify(array1);
+
+// storageGet Create
+sessionStorage.setItem('ss1', 1);
+sessionStorage.setItem('ss2', '이');
+sessionStorage.setItem('ss3', undefined);
+
+// storageGet Read
+const ss1 = sessionStorage.getItem('ss1');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+
+// storageGet Update
+sessionStorage.setItem('ss1', '[1, 2, 3]');
+sessionStorage.setItem('ss2', {
+  key1: 'value1'
+});
+sessionStorage.setItem('ss3', function() {});
+
+// storageGet Delete
+sessionStorage.removeItem('ss1');
+sessionStorage.clear();
+
+</script>
