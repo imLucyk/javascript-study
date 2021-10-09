@@ -1,6 +1,22 @@
+const queryString = new URLSearchParams(window.location.search);
+const nameText = queryString.get('input-text');
+
+// const inputTextObjects = document.getElementsByName('input-text');
+// const inputTextObject = inputTextObjects[0];
+
+const inputTextObject = document.getElementsByName('input-text')[0];
+inputTextObject.value = nameText;
+
+const inputHiddens = queryString.getAll('input-hidden');
+const inputHidden = inputHiddens[0];
+
+inputTextObject.focus();
+// inputTextObject.blur();
+
 const membersGet = sessionStorage.getItem('members');
 const membersLogical = membersGet || '[]';
 const members = JSON.parse(membersLogical);
+
 
 const membersSubmit = function(f) {
   const inputTextObject = f['input-text'];
@@ -25,9 +41,9 @@ const membersCreate = function(member) {
 };
 
 const membersRead = function() {
-  const tagPre = document.getElementById('tag-pre');
+  const t = document.getElementById('name');
   for (let index in members) {
-    tagPre.innerHTML += members[index] + '\n';
+    t.innerHTML += members[index] + '\n';
   }
   return members;
 }
