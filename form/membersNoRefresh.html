@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer src="./membersNoRefresh.js"></script>
+</head>
+<body>
+  <form onsubmit="return membersSubmit(this);">
+    <input type="text" name="input-text" value="초기값" placeholder="명령을 입력 하세요.">
+    <input type="hidden" name="input-hidden" value="숨겨진값1">
+    <input type="hidden" name="input-hidden" value="숨겨진값2">
+    <input type="hidden" name="input-hidden" value="숨겨진값3">
+    <input type="submit" value="전송">
+  </form>
+  
+  <pre id="name"></pre>
+  
+</body>
+</html>
