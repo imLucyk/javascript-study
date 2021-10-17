@@ -45,9 +45,11 @@ const membersRead = function() {
   t.innerHTML = '';
   for (let index in members) {
     t.innerHTML += '<input type="text" name="members-name" value="' + members[index] + '">';
+    t.innerHTML += '<button onclick="membersUpdate(' + index + ')">Update</button>';
     t.innerHTML += '<button onclick="membersDelete(' + index + ')">Delete</button>';
     t.innerHTML += '\n';
   }
+  
   console.log('Readed', members);
   return members;
 }
@@ -58,12 +60,13 @@ const membersDelete = function(index) {
   return membersRead();
 }
 
-const membersUpdate = function(index, member){
-  members[index] = member;
+const membersUpdate = function(index) {
+  const name = document.getElementsByName('members-name')[index].value;
+  members[index] = name;
   membersSet();
-  return members;
+  return membersRead();
+};
 
-}
 
 membersRead();
 
