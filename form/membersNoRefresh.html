@@ -16,7 +16,14 @@
     <input type="submit" value="전송">
   </form>
   
-  <pre id="name"></pre>
-  
+  <div id="tag-div-parent"></div>
+  <div style="display: none;">
+    <div id="tag-div-child">
+      <input type="text" name="members-name" value="">
+      <button name="members-update" onclick="membersUpdate(index)">Update</button>
+      <button name="members-delete" onclick="membersDelete(index)">Delete</button>
+    </div>
+  </div>
+
 </body>
 </html>

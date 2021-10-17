@@ -31,18 +31,17 @@ const membersCreate = function(form) {
 };
 
 const membersRead = function() {
-  const t = document.getElementById('name');
-  t.innerHTML = '';
+  const tagDivParent = document.getElementById('tag-div-parent');
+  tagDivParent.innerHTML = '';
+  const tagDivChild = document.getElementById('tag-div-child');
   for (let index in members) {
-    t.innerHTML += '<input type="text" name="members-name" value="' + members[index] + '">';
-    t.innerHTML += '<button onclick="membersUpdate(' + index + ')">Update</button>';
-    t.innerHTML += '<button onclick="membersDelete(' + index + ')">Delete</button>';
-    t.innerHTML += '\n';
+    const newDivChild = tagDivChild.cloneNode(true);
+    tagDivParent.appendChild(newDivChild);
   }
-  
   console.log('Readed', members);
   return members;
-}
+};
+
 
 const membersDelete = function(index) {
   members.splice(index, 1)
