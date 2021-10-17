@@ -25,6 +25,7 @@ const membersSet = function() {
 const membersCreate = function(form) {
   const inputTextObject = form['input-text'];
   members.push(inputTextObject.value);
+  inputTextObject.value = '';
   membersSet();
   return membersRead();
 };
