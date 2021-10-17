@@ -46,9 +46,12 @@ const membersRead = function() {
     const newDivChild = tagDivChild.cloneNode(true);
     tagDivParent.appendChild(newDivChild);
     const membersNameObject = document.getElementsByName('members-name')[index];
+    const membersAgeObject = document.getElementsByName('members-age')[index];
     const membersUpdateObject = document.getElementsByName('members-update')[index];
     const membersDeleteObject = document.getElementsByName('members-delete')[index];
-    membersNameObject.value = members[index];
+    // membersNameObject.value = members[index];
+    membersNameObject.value = members[index].name;
+    membersAgeObject.value = members[index].age;
     membersUpdateObject.index = index;
     membersDeleteObject.index = index;
   }
@@ -65,7 +68,11 @@ const membersDelete = function(index) {
 
 const membersUpdate = function(index) {
   const name = document.getElementsByName('members-name')[index].value;
-  members[index] = name;
+  const age = document.getElementsByName('members-age')[index].value;
+  members[index] = {
+    name: name,
+    age: age
+  }
   membersSet();
   return membersRead();
 };
