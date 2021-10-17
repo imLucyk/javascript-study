@@ -4,13 +4,13 @@ const nameText = queryString.get('input-text');
 // const inputTextObjects = document.getElementsByName('input-text');
 // const inputTextObject = inputTextObjects[0];
 
-const inputTextObject = document.getElementsByName('input-text')[0];
-inputTextObject.value = nameText;
+// const inputTextObject = document.getElementsByName('input-text')[0];
+// inputTextObject.value = nameText;
 
-const inputHiddens = queryString.getAll('input-hidden');
-const inputHidden = inputHiddens[0];
+// const inputHiddens = queryString.getAll('input-hidden');
+// const inputHidden = inputHiddens[0];
 
-inputTextObject.focus();
+// inputTextObject.focus();
 // inputTextObject.blur();
 
 const membersGet = sessionStorage.getItem('members');
@@ -23,9 +23,17 @@ const membersSet = function() {
 }
 
 const membersCreate = function(form) {
-  const inputTextObject = form['input-text'];
-  members.push(inputTextObject.value);
-  inputTextObject.value = '';
+  // const inputTextObject = form['input-text'];
+  // members.push(inputTextObject.value);
+  // inputTextObject.value = '';
+  const memberNameObject = form['member-name'];
+  const memberAgeObject = form['member-age'];
+  members.push({
+    name: memberNameObject.value,
+    age: memberAgeObject.value
+  });
+  memberNameObject.value = '';
+  memberAgeObject.value = '';
   membersSet();
   return membersRead();
 };
