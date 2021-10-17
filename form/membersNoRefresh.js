@@ -55,7 +55,7 @@ const membersRead = function() {
 const membersDelete = function(index) {
   members.splice(index, 1)
   membersSet();
-  return members;
+  return membersRead();
 }
 
 const membersUpdate = function(index, member){
