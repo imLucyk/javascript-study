@@ -7,7 +7,8 @@
   <script defer src="./membersNoRefresh.js"></script>
 </head>
 <body>
-  <form onsubmit="return membersSubmit(this);">
+  <!-- <form onsubmit="return membersSubmit(this);"> -->
+  <form method="get" onsubmit="membersCreate(this); return false;">
     <input type="text" name="input-text" value="초기값" placeholder="명령을 입력 하세요.">
     <input type="hidden" name="input-hidden" value="숨겨진값1">
     <input type="hidden" name="input-hidden" value="숨겨진값2">
