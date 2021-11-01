@@ -117,23 +117,25 @@ const membersRead = function() {
 
 const membersDelete = function(index) {
   const url = 'http://localhost:3100/api/v1/members/' + index;
-  const xhrObject = new XMLHttpRequest();
-  xhrObject.onreadystatechange = function () {
-    if (xhrObject.readyState !== 4) return;
-    if (xhrObject.status === 200) {
-      membersRead();
-    } else {
-      const error = {
-        status: xhrObject.status,
-        statusText: xhrObject.statusText,
-        responseText: xhrObject.responseText
-      }
-      console.error(error);
-    }
-  };
-  xhrObject.open('DELETE', url);
-  xhrObject.setRequestHeader('Content-Type', 'application/json');
-  xhrObject.send();
+  // const xhrObject = new XMLHttpRequest();
+  // xhrObject.onreadystatechange = function () {
+  //   if (xhrObject.readyState !== 4) return;
+  //   if (xhrObject.status === 200) {
+  //     membersRead();
+  //   } else {
+  //     const error = {
+  //       status: xhrObject.status,
+  //       statusText: xhrObject.statusText,
+  //       responseText: xhrObject.responseText
+  //     }
+  //     console.error(error);
+  //   }
+  // };
+  // xhrObject.open('DELETE', url);
+  // xhrObject.setRequestHeader('Content-Type', 'application/json');
+  // xhrObject.send();
+  ajax('DELETE', url, '', membersRead);
+
 };
 
 
