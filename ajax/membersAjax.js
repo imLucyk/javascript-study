@@ -147,23 +147,25 @@ const membersUpdate = function(index) {
     name: name,
     age: age
   };
-  const xhrObject = new XMLHttpRequest();
-  xhrObject.onreadystatechange = function () {
-    if (xhrObject.readyState !== 4) return;
-    if (xhrObject.status === 200) {
-      membersRead();
-    } else {
-      const error = {
-        status: xhrObject.status,
-        statusText: xhrObject.statusText,
-        responseText: xhrObject.responseText
-      }
-      console.error(error);
-    }
-  };
-  xhrObject.open('PATCH', url);
-  xhrObject.setRequestHeader('Content-Type', 'application/json');
-  xhrObject.send(JSON.stringify(member));
+  // const xhrObject = new XMLHttpRequest();
+  // xhrObject.onreadystatechange = function () {
+  //   if (xhrObject.readyState !== 4) return;
+  //   if (xhrObject.status === 200) {
+  //     membersRead();
+  //   } else {
+  //     const error = {
+  //       status: xhrObject.status,
+  //       statusText: xhrObject.statusText,
+  //       responseText: xhrObject.responseText
+  //     }
+  //     console.error(error);
+  //   }
+  // };
+  // xhrObject.open('PATCH', url);
+  // xhrObject.setRequestHeader('Content-Type', 'application/json');
+  // xhrObject.send(JSON.stringify(member));
+  ajax('PATCH', url, JSON.stringify(member), membersRead);
+
 };
 
 
