@@ -15,26 +15,6 @@ const nameText = queryString.get('input-text');
 
 let members;
 
-const ajax = function(method, url, data, callback) {
-  const xhrObject = new XMLHttpRequest();
-  xhrObject.onreadystatechange = function() {
-    if (xhrObject.readyState !== 4) return;
-    if (xhrObject.status === 200) {
-      callback(xhrObject);
-    } else {
-      const error = {
-        status: xhrObject.status,
-        statusText: xhrObject.statusText,
-        responseText: xhrObject.responseText
-      }
-      console.error(error);
-    }
-  };
-  xhrObject.open(method, url);
-  xhrObject.setRequestHeader('Content-Type', 'application/json');
-  xhrObject.send(data);
-};
-
 const membersCreate = function(form) {
   const memberNameObject = form['member-name'];
   const memberAgeObject = form['member-age'];
@@ -47,12 +27,10 @@ const membersCreate = function(form) {
     memberAgeObject.value = '';
     membersRead();
   }
-  // ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
   axios.post('http://localhost:3100/api/v1/members', member).then(successFunction);
 };
 
 const membersRead = function() {
-  // ajax('GET', 'http://localhost:3100/api/v1/members', '', successFunction);
   axios.get('http://localhost:3100/api/v1/members').then(function(response) {
     const membersLogical = response.data;
     members = membersLogical.members;
@@ -77,7 +55,6 @@ const membersRead = function() {
 
 const membersDelete = function(index) {
   const url = 'http://localhost:3100/api/v1/members/' + index;
-  // ajax('DELETE', url, '', membersRead);
   axios.delete(url).then(membersRead);
 };
 
@@ -90,7 +67,6 @@ const membersUpdate = function(index) {
     name: name,
     age: age
   };
-  // ajax('PATCH', url, JSON.stringify(member), membersRead);
   axios.patch(url, member).then(membersRead);
 };
 
