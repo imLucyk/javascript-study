@@ -47,7 +47,8 @@ const membersCreate = function(form) {
     memberAgeObject.value = '';
     membersRead();
   }
-  ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
+  // ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
+  axios.post('http://localhost:3100/api/v1/members', member).then(successFunction)
 };
 
 const membersRead = function() {
@@ -72,6 +73,7 @@ const membersRead = function() {
     console.log('Readed', members);
   };
   ajax('GET', 'http://localhost:3100/api/v1/members', '', successFunction);
+  // axios.get('http://localhost:3100/api/v1/members').then(successFunction)
 };
 
 const membersDelete = function(index) {
