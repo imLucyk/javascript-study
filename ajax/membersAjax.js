@@ -48,7 +48,7 @@ const membersCreate = function(form) {
     membersRead();
   }
   // ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
-  axios.post('http://localhost:3100/api/v1/members', member).then(successFunction)
+  axios.post('http://localhost:3100/api/v1/members', member).then(successFunction);
 };
 
 const membersRead = function() {
@@ -78,7 +78,8 @@ const membersRead = function() {
 
 const membersDelete = function(index) {
   const url = 'http://localhost:3100/api/v1/members/' + index;
-  ajax('DELETE', url, '', membersRead);
+  // ajax('DELETE', url, '', membersRead);
+  axios.delete(url).then(membersRead);
 };
 
 
