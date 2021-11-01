@@ -16,7 +16,6 @@ const nameText = queryString.get('input-text');
 let members;
 
 const ajax = function(method, url, data, callback) {
-  debugger
   const xhrObject = new XMLHttpRequest();
   xhrObject.onreadystatechange = function() {
     if (xhrObject.readyState !== 4) return;
@@ -36,11 +35,6 @@ const ajax = function(method, url, data, callback) {
   xhrObject.send(data);
 };
 
-const membersSet = function() {
-  const membersSet = JSON.stringify(members);
-  sessionStorage.setItem('members', membersSet);
-}
-
 const membersCreate = function(form) {
   const memberNameObject = form['member-name'];
   const memberAgeObject = form['member-age'];
@@ -53,23 +47,6 @@ const membersCreate = function(form) {
     memberAgeObject.value = '';
     membersRead();
   }
-  // const xhrObject = new XMLHttpRequest();
-  // xhrObject.onreadystatechange = function() {
-  //   if (xhrObject.readyState !== 4) return;
-  //   if (xhrObject.status === 200) {
-  //     successFunction();
-  //   } else {
-  //     const error = {
-  //       status: xhrObject.status,
-  //       statusText: xhrObject.statusText,
-  //       responseText: xhrObject.responseText
-  //     }
-  //     console.error(error);
-  //   }
-  // };
-  // xhrObject.open('POST', 'http://localhost:3100/api/v1/members');
-  // xhrObject.setRequestHeader('Content-Type', 'application/json');
-  // xhrObject.send(JSON.stringify(member));
   ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
 };
 
@@ -94,48 +71,12 @@ const membersRead = function() {
     }
     console.log('Readed', members);
   };
-  // const xhrObject = new XMLHttpRequest();
-  // xhrObject.onreadystatechange = function () {
-  //   if (xhrObject.readyState !== 4) return;
-  //   if (xhrObject.status === 200) {
-  //     successFunction(xhrObject);
-  //   } else {
-  //     const error = {
-  //       status: xhrObject.status,
-  //       statusText: xhrObject.statusText,
-  //       responseText: xhrObject.responseText
-  //     }
-  //     console.error(error);
-  //   }
-  // };
-  // xhrObject.open('GET', 'http://localhost:3100/api/v1/members');
-  // xhrObject.setRequestHeader('Content-Type', 'application/json');
-  // xhrObject.send();
   ajax('GET', 'http://localhost:3100/api/v1/members', '', successFunction);
-
 };
 
 const membersDelete = function(index) {
   const url = 'http://localhost:3100/api/v1/members/' + index;
-  // const xhrObject = new XMLHttpRequest();
-  // xhrObject.onreadystatechange = function () {
-  //   if (xhrObject.readyState !== 4) return;
-  //   if (xhrObject.status === 200) {
-  //     membersRead();
-  //   } else {
-  //     const error = {
-  //       status: xhrObject.status,
-  //       statusText: xhrObject.statusText,
-  //       responseText: xhrObject.responseText
-  //     }
-  //     console.error(error);
-  //   }
-  // };
-  // xhrObject.open('DELETE', url);
-  // xhrObject.setRequestHeader('Content-Type', 'application/json');
-  // xhrObject.send();
   ajax('DELETE', url, '', membersRead);
-
 };
 
 
@@ -147,31 +88,7 @@ const membersUpdate = function(index) {
     name: name,
     age: age
   };
-  // const xhrObject = new XMLHttpRequest();
-  // xhrObject.onreadystatechange = function () {
-  //   if (xhrObject.readyState !== 4) return;
-  //   if (xhrObject.status === 200) {
-  //     membersRead();
-  //   } else {
-  //     const error = {
-  //       status: xhrObject.status,
-  //       statusText: xhrObject.statusText,
-  //       responseText: xhrObject.responseText
-  //     }
-  //     console.error(error);
-  //   }
-  // };
-  // xhrObject.open('PATCH', url);
-  // xhrObject.setRequestHeader('Content-Type', 'application/json');
-  // xhrObject.send(JSON.stringify(member));
   ajax('PATCH', url, JSON.stringify(member), membersRead);
-
 };
-
-
 
 membersRead();
-
-const testFunction = function() {
-  return undefined;
-};
