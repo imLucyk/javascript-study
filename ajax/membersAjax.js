@@ -52,7 +52,8 @@ const membersCreate = function(form) {
 };
 
 const membersRead = function() {
-  const successFunction = function(response) {
+  // ajax('GET', 'http://localhost:3100/api/v1/members', '', successFunction);
+  axios.get('http://localhost:3100/api/v1/members').then(function(response) {
     const membersLogical = response.data;
     members = membersLogical.members;
     const tagDivParent = document.getElementById('tag-div-parent');
@@ -71,9 +72,7 @@ const membersRead = function() {
       membersDeleteObject.index = index;
     }
     console.log('Readed', members);
-  };
-  // ajax('GET', 'http://localhost:3100/api/v1/members', '', successFunction);
-  axios.get('http://localhost:3100/api/v1/members').then(successFunction)
+  })
 };
 
 const membersDelete = function(index) {
